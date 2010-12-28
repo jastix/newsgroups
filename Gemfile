@@ -8,6 +8,8 @@ gem 'rails', '3.0.3'
 gem 'pg'
 gem "will_paginate"
 gem 'web-app-theme'
+
+gem 'sunspot_rails', '~>1.2rc4'
 #gem 'irbtools'
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -21,7 +23,7 @@ gem 'web-app-theme'
 
 # Bundle the extra gems:
 # gem 'bj'
-# gem 'nokogiri'
+ gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 

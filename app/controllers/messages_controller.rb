@@ -2,8 +2,14 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.xml
   def index
-    @messages = Message.paginate(:per_page => 30, :page => params[:page])
-
+    @messages = if params[:q].blank?
+      Message.paginate(:per_page => 30, :page => params[:page])
+  else
+   poisk = Message.search(:include => [:address, :category, :subject, :address => :organization]) do |s|
+      s.keywords params[:q]
+    end
+    poisk.results
+  end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @messages }
@@ -79,6 +85,13 @@ class MessagesController < ApplicationController
       format.html { redirect_to(messages_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def search
+    @search = Message.search(:include => [:address, :category, :subject, :organization]) do
+      keywords[params[:q]]
+    end
+
   end
 end
 
