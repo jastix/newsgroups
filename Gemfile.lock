@@ -51,8 +51,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mysql (2.8.1)
     nokogiri (1.4.4)
-    pg (0.10.0)
     polyglot (0.3.1)
     pr_geohash (1.0.0)
     rack (1.2.1)
@@ -100,8 +100,8 @@ DEPENDENCIES
   devise
   formtastic (~> 1.1.0)
   luisparravicini-classifier
+  mysql
   nokogiri
-  pg
   rails (= 3.0.3)
   ruby-stemmer
   sunspot_rails (~> 1.2rc4)

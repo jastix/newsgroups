@@ -5,7 +5,7 @@ gem 'rails', '3.0.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'mysql'
-gem 'pg'
+#gem 'pg'
 gem "will_paginate"
 gem 'web-app-theme'
 
