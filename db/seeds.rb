@@ -48,7 +48,7 @@ user = User.create! do |u|
       u.password_confirmation = 'user123'
       #u.ensure_authentication_token!
     end
-    user.confirm!
+
 
 
 seed_file = File.join(Rails.root, 'db', 'address.yml')
