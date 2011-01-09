@@ -3,9 +3,9 @@ class Organization < ActiveRecord::Base
   attr_accessible :title
 
   validates_presence_of :title
-=begin
+
   searchable do
-    string :title
-=end
+    text :title
+  end
 end
 

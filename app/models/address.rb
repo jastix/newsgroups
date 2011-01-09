@@ -4,9 +4,9 @@ class Address < ActiveRecord::Base
   attr_accessible :from, :organization_id
   validates_presence_of :organization_id
   validates_presence_of :from
-=begin
+
   searchable do
     text :from , :boost => 2.0
-=end
+  end
 end
 

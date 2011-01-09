@@ -5,10 +5,10 @@ class Category < ActiveRecord::Base
 
 
   accepts_nested_attributes_for :messages, :reject_if => :all_blank
-=begin
+
   searchable do
-    string :title
-=end
+    text :title
+  end
 
 
 end

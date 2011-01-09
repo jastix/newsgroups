@@ -21,7 +21,7 @@ class Message < ActiveRecord::Base
     end
   end
 
-#begin
+
   searchable do
     text :body
   end
