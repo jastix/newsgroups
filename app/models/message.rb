@@ -3,7 +3,7 @@ class Message < ActiveRecord::Base
   belongs_to :subject
   belongs_to :category
   belongs_to :user
-  attr_accessible :body, :train, :address_id, :category_id, :subject_id, :user_id
+  attr_accessible :body, :train, :address_id, :category_id, :subject_id, :user_id, :assigned_category
   accepts_nested_attributes_for :category, :reject_if => :all_blank
   after_commit :classify
 
@@ -11,18 +11,19 @@ class Message < ActiveRecord::Base
 
 
   def classify
-
-    if self.train == false
-    tr = ""
-    tr << self.body + ' ' + self.subject.title + ' ' + self.address.from + ' ' + self.address.organization.title
-    assig = self.user.classifier.classify tr
-    self.update_attribute(:assigned_category, assig)
+    if self.user.trained == true
+      if self.train == false
+        tr = ""
+        tr << self.body + ' ' + self.subject.title + ' ' + self.address.from + ' ' + self.address.organization.title
+        assig = self.user.classifier.classify tr
+        self.update_attribute(:assigned_category, assig)
+      end
+    end
   end
-  end
 
-=begin
+#begin
   searchable do
     text :body
-=end
+  end
 end
 

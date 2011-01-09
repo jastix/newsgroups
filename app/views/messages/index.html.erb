@@ -20,6 +20,9 @@
             <%= t("activerecord.attributes.message.body", :default => t("activerecord.labels.body", :default => "Body")) %>
           </th>
                     <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+                    <th>
+                    <%= message.category.title %>
+                    </th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @messages.each do |message| -%>

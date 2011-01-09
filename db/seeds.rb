@@ -71,4 +71,6 @@ a = Message.find(:all, :conditions => {:address_id => nil})
 a.each do |mes|
   mes.update_attribute(:address_id, Address.find_or_create_by_from('unknown').id)
 end
+User.first.training
+Message.find(:all, :conditions => {:train => false}).each {|mes| mes.classify}
 

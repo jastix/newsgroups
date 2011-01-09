@@ -11,6 +11,11 @@ class MessagesController < ApplicationController
     end
     poisk.results
   end
+  @cl_result = 0
+  @messages.each do |mes|
+    if mes.assigned_category.downcase == mes.category.title.downcase
+      @cl_result += 1
+  end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @messages }
