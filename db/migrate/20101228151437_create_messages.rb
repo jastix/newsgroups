@@ -6,7 +6,8 @@ class CreateMessages < ActiveRecord::Migration
       t.integer :address_id
       t.integer :category_id
       t.integer :subject_id
-
+      t.string  :assigned_category
+      t.integer :user_id
       t.timestamps
     end
   end
@@ -15,3 +16,4 @@ class CreateMessages < ActiveRecord::Migration
     drop_table :messages
   end
 end
+

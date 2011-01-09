@@ -42,6 +42,15 @@ Address.create(config["addresses"], :organization => )
 each {|k, v| Address.create!{:from => k, :organization_i
 config["addresses"].first.to_a[1][1]
 =end
+user = User.create! do |u|
+      u.email = 'user@test.com'
+      u.password = 'user123'
+      u.password_confirmation = 'user123'
+      #u.ensure_authentication_token!
+    end
+    user.confirm!
+
+
 seed_file = File.join(Rails.root, 'db', 'address.yml')
 config = YAML::load_file(seed_file)
 arr = config.flatten
@@ -55,6 +64,11 @@ config = YAML::load_file(seed_file)
 arr = config.flatten
 arr.shift
 arr.flatten.each do |conf|
-    Message.create!(:body => conf.to_a[0][1], :train => conf.to_a[1][1], :address_id => Address.find_or_create_by_from(conf.to_a[2][1]).id, :category_id => Category.find_or_create_by_title(conf.to_a[3][1]).id, :subject_id => Subject.find_or_create_by_title(conf.to_a[4][1]).id)
+    Message.create!(:body => conf.to_a[0][1], :train => conf.to_a[1][1], :address_id => Address.find_or_create_by_from(conf.to_a[2][1]).id, :category_id => Category.find_or_create_by_title(conf.to_a[3][1]).id, :subject_id => Subject.find_or_create_by_title(conf.to_a[4][1]).id, :assigned_category => 'unknown', :user_id => User.first.id)
+end
+
+a = Message.find(:all, :conditions => {:address_id => nil})
+a.each do |mes|
+  mes.update_attribute(:address_id, Address.find_or_create_by_from('unknown').id)
 end
 

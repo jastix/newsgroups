@@ -3,6 +3,7 @@ class CreateCategories < ActiveRecord::Migration
     create_table :categories do |t|
       t.string :title
       t.string :assigned
+      t.boolean :trained
 
       t.timestamps
     end
@@ -12,3 +13,4 @@ class CreateCategories < ActiveRecord::Migration
     drop_table :categories
   end
 end
+

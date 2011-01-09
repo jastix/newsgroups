@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.xml
+  before_filter :authenticate_user!
   def index
     @messages = if params[:q].blank?
       Message.paginate(:per_page => 30, :page => params[:page])

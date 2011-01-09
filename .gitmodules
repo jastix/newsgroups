@@ -1,0 +1,3 @@
+[submodule "ruby-stemmer"]
+	path = ruby-stemmer
+	url = git://github.com/aurelian/ruby-stemmer.git
