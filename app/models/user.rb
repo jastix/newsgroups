@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
         mes.each {|m| tr << m.body + ' ' + m.subject.title + ' ' + m.address.from + ' ' + m.address.organization.title}
         tr.each {|tra| self.classifier.train(cat, tra) }
         end
-        self.update_attribute(:trained, 'true')
+        self.update_attribute(:trained, true)
 
 
   end

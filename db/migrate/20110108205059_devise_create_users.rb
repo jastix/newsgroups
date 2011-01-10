@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.confirmable
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
       # t.token_authenticatable
-      t.text :classifier
+      t.text :classifier , :limit => 4294967295
 
       t.timestamps
     end
