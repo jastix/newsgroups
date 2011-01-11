@@ -89,5 +89,5 @@ a.each do |mes|
   mes.update_attribute(:address_id, Address.find_or_create_by_from('unknown').id)
 end
 
-Message.find(:all, :conditions => {:train => false}).each {|mes| mes.classify}
+Message.find(:all, :conditions => {:train => false, :assigned_category => 'unknown'}).each {|mes| mes.classify}
 
