@@ -5,7 +5,7 @@ class Message < ActiveRecord::Base
   belongs_to :user
   attr_accessible :body, :train, :address_id, :category_id, :subject_id, :user_id, :assigned_category
   accepts_nested_attributes_for :category, :reject_if => :all_blank
-  after_commit :classify
+  #after_commit :classify
 
 
 

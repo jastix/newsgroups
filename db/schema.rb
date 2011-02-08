@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(:version => 20110108205059) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                      :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128,        :default => "", :null => false
-    t.string   "password_salt",                              :default => "", :null => false
+    t.string   "email",                                      :default => "",    :null => false
+    t.string   "encrypted_password",   :limit => 128,        :default => "",    :null => false
+    t.string   "password_salt",                              :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20110108205059) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "trained"
+    t.boolean  "trained",                                    :default => false
     t.text     "classifier",           :limit => 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"

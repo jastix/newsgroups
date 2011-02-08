@@ -4,10 +4,11 @@ gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'mysql'
+gem 'mysql2'
 #gem 'pg'
 gem "will_paginate"
 gem 'web-app-theme'
+gem 'yaml_db'
 
 gem 'sunspot_rails', '~>1.2rc4'
 #gem 'irbtools'
