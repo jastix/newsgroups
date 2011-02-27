@@ -3,6 +3,9 @@
   <div class="content">
     <p>Number of properly classified messages: <%= @cl_result %></p>
     <p>Number of messages: <%= @total_messages %></p>
+    <% if @total_hits %>
+    <p>Documents found: <%= @total_hits %>
+    <% end %>
   </div>
 </div>
 <div class="block">

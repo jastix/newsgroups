@@ -7,10 +7,11 @@ class MessagesController < ApplicationController
       Message.all.paginate(:per_page => 30, :page => params[:page])
   else
    poisk = Message.search(:include => [:address, :category, :subject, :address => :organization]) do |s|
-      s.keywords params[:q], :highlight => true, :merge_continuous_fragments => true
+      s.keywords params[:q], :highlight => true, :merge_continuous_fragments => true, :phrase_fields => {:title => 2.0, :from => 1.5}
     end
     poisk.results
-  end
+    end
+  @total_hits = poisk.total if poisk
   @total_messages = Message.all.length.to_s
   calc_properly
 

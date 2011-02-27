@@ -24,11 +24,18 @@ class Message < ActiveRecord::Base
 
   searchable do
     text :body
+    text :address do |mes|
+      mes.address.from
+    end
+    text :subject do |mes|
+      mes.subject.title
+    end
+    text :organization do |mes|
+      mes.address.organization.title
+    end
 
-      #address.from
-      #subject.title
-      #address.organization.title
-    #end
+
+
 =begin
     string :messages do
       self.body + address.from +  subject.title +  address.organization.title
