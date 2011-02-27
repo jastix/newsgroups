@@ -6,7 +6,7 @@ class Category < ActiveRecord::Base
 
   accepts_nested_attributes_for :messages, :reject_if => :all_blank
 
-  searchable do
+  Sunspot.setup(Category) do
     text :title
   end
 

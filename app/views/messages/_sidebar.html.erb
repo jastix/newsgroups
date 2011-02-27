@@ -1,14 +1,14 @@
 <div class="block notice">
-  <h3>Simple Block</h3>
+  <h3>Statistics</h3>
   <div class="content">
-    <p>Number of properly classified messages: <%= @cl_result.to_s %></p>
+    <p>Number of properly classified messages: <%= @cl_result %></p>
+    <p>Number of messages: <%= @total_messages %></p>
   </div>
 </div>
 <div class="block">
   <h3>Info</h3>
   <ul class="navigation">
-    <li>Number of messages: <%= Messages.all.length.to_s%></li>
-    <li><a href="#">Link 2</a></li>
+    <li><a href="http://www.tue.nl">TU/e</a></li>
   </ul>
 </div>
 

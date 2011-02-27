@@ -64,6 +64,9 @@
         <tokenizer class="solr.StandardTokenizerFactory"/>
         <filter class="solr.StandardFilterFactory"/>
         <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.LengthFilterFactory" min="3" max="50" />
+        <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
+        <filter class="solr.TrimFilterFactory"/>
       </analyzer>
     </fieldType>
     <!-- *** This fieldType is used by Sunspot! *** -->
@@ -120,6 +123,7 @@
     <!-- *** This field is used by Sunspot! *** -->
     <field name="text" stored="false" type="string" termVectors="true" multiValued="true" indexed="true"/>
     <!-- *** This field is used by Sunspot! *** -->
+
     <field name="lat" stored="true" type="tdouble" multiValued="false" indexed="true"/>
     <!-- *** This field is used by Sunspot! *** -->
     <field name="lng" stored="true" type="tdouble" multiValued="false" indexed="true"/>
@@ -128,7 +132,7 @@
     <!-- *** This dynamicField is used by Sunspot! *** -->
     <dynamicField name="_local*" stored="false" type="tdouble" multiValued="false" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
-    <dynamicField name="*_text" stored="false" type="text" multiValued="true" indexed="true"/>
+    <dynamicField name="*_text" stored="false" type="text" termVectors="true" multiValued="true" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
     <dynamicField name="*_texts" stored="true" type="text" multiValued="true" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
@@ -180,7 +184,7 @@
     <!-- *** This dynamicField is used by Sunspot! *** -->
     <dynamicField name="*_lms" stored="true" type="slong" multiValued="true" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
-    <dynamicField name="*_s" stored="false" type="string" multiValued="false" indexed="true"/>
+    <dynamicField name="*_s" stored="false" type="string" termVectors="true" multiValued="false" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
     <dynamicField name="*_sm" stored="false" type="string" multiValued="true" indexed="true"/>
     <!-- *** This dynamicField is used by Sunspot! *** -->
