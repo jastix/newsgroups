@@ -23,7 +23,10 @@ class Message < ActiveRecord::Base
 
 
   searchable do
-    text :body
+    text :body do |mes|
+      mes.body + mes.address.from + mes.subject.title + mes.address.organization.title
+    end
+=begin
     text :address do |mes|
       mes.address.from
     end
@@ -32,7 +35,7 @@ class Message < ActiveRecord::Base
     end
     text :organization do |mes|
       mes.address.organization.title
-    end
+=end
 
 
 
